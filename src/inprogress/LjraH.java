@@ -38,7 +38,7 @@ public class LjraH extends JFrame {
 		final JFrame frame = new JFrame("Nytt Fönster");
 
 		// Display the window.
-		frame.setSize(900, 800);
+		frame.setSize(800, 700);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -46,7 +46,7 @@ public class LjraH extends JFrame {
 //	    	frame.getContentPane().setLayout(new GridLayout(1, 1));
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		Pkau pau = new Pkau();
+		Editor pau = new Editor();
 		tabbedPane.addTab("Start", makePanel1("Tab 1"));
 		tabbedPane.addTab("Fotoalbum", makePanel2("Tab 2"));
 		tabbedPane.addTab("Editor", pau.makePanel3("Tab 3"));

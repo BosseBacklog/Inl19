@@ -1,6 +1,38 @@
 package inprogress;
 
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileSystemView;
+
 public class Slask {
+	 JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+	
+	public String Fajlchoser(){
+		int returnValue = jfc.showOpenDialog(null);
+      	 
+      	 if(returnValue == JFileChooser.APPROVE_OPTION) {
+      		 File selectedFile = jfc.getSelectedFile();
+      		 System.out.println(selectedFile.getAbsolutePath());
+      		return selectedFile.getAbsolutePath();
+      	 } else {
+      		 return null;
+      	 }
+	}
+	
+	
+//    public static void main(String[] args) {
+//      	
+//      	 
+//      	 int returnValue = jfc.showOpenDialog(null);
+//      	 
+//      	 if(returnValue == JFileChooser.APPROVE_OPTION) {
+//      		 File selectedFile = jfc.getSelectedFile();
+//      		 System.out.println(selectedFile.getAbsolutePath());
+//      	 }
+//      	 
+//       }
 
 //	private static JPanel makePanel3(String string) {
 //	JPanel panel = new JPanel();

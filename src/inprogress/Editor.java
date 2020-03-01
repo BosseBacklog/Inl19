@@ -35,7 +35,7 @@ public class Editor implements ActionListener {
 
 	private JPanel p = new JPanel();
 	private JTextField namn = new JTextField();
-	private JButton oppna = new JButton("Öppna");
+	private JButton oppna = new JButton("ï¿½ppna");
 	private JButton spara = new JButton("Spara");
 	private JButton skriv = new JButton("Skriv ut");
 	private JTextArea area = new JTextArea(10,60);
@@ -57,7 +57,7 @@ public class Editor implements ActionListener {
 		
 			area.setFont(new Font("Monospaced", Font.PLAIN, 12));
 			p.setLayout(new GridLayout(1,6));
-			p.add(new JLabel("Filsökväg: ", JLabel.RIGHT));
+			p.add(new JLabel("Filsï¿½kvï¿½g: ", JLabel.RIGHT));
 			p.add(namn); p.add(oppna); p.add(spara);
 			p.add(skriv);
 			
@@ -73,7 +73,7 @@ public class Editor implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == namn || e.getSource() == oppna) {
-			läsInFil(Fajlchoser());
+			lÃ¤sInFil(Fajlchoser());
 		} else if (e.getSource() == spara) {
 			sparaFil(namn.getText());
 		} else if (e.getSource() == skriv ) {
@@ -86,7 +86,7 @@ public class Editor implements ActionListener {
 		
 	}		
 	
-	private void läsInFil(String filnamn) {
+	private void lÃ¤sInFil(String filnamn) {
 		try {
 			FileReader r = new FileReader(filnamn);
 			area.read(r, null);

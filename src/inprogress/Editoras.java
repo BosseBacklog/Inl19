@@ -9,7 +9,7 @@ public class Editoras extends JFrame implements ActionListener {
 
 	private JPanel p = new JPanel();
 	private JTextField namn = new JTextField();
-	private JButton oppna = new JButton("÷ppna");
+	private JButton oppna = new JButton("ÔøΩppna");
 	private JButton spara = new JButton("Spara");
 	private JButton skriv = new JButton("Skriv ut");
 	private JButton sluta = new JButton("Avsluta");
@@ -46,7 +46,7 @@ public class Editoras extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == namn || e.getSource() == oppna) {
-			l‰sInFil(namn.getText());
+			l√§sInFil(namn.getText());
 		} else if (e.getSource() == spara) {
 			sparaFil(namn.getText());
 		} else if (e.getSource() == skriv) {
@@ -61,7 +61,7 @@ public class Editoras extends JFrame implements ActionListener {
 
 	}
 
-	private void l‰sInFil(String filnamn) {
+	private void l√§sInFil(String filnamn) {
 		try {
 			FileReader r = new FileReader(filnamn);
 			area.read(r, null);

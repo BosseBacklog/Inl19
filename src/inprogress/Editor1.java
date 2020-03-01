@@ -1,6 +1,5 @@
 package inprogress;
 
-import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -12,10 +11,10 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileSystemView;
@@ -23,7 +22,7 @@ import javax.swing.filechooser.FileSystemView;
 public class Editor1 implements ActionListener {
 	
 	
-	private String fnamn = "";
+	private String fnamn = null;
 	public String getFnamn() {
 		return fnamn;
 	}
@@ -35,35 +34,31 @@ public class Editor1 implements ActionListener {
 
 	private JPanel p = new JPanel();
 	private JTextField namn = new JTextField();
-	private JButton oppna = new JButton("÷ppna");
+	private JButton oppna = new JButton("ÔøΩppna");
 	private JButton spara = new JButton("Spara");
-	private JButton skriv = new JButton("Skriv ut");
-	private JTextArea area = new JTextArea(10,60);
-	
-	private JScrollPane sp = new JScrollPane(area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+	private JButton nyFil = new JButton("Ny fil");
+	private JTextArea area = new JTextArea(37,80);
+	private JScrollPane sp = new JScrollPane(area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	private JSplitPane split = new JSplitPane(JSplitPane.VERTICAL_SPLIT, sp, p);
 	
 	 JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-
+//	 JFileChooser jf = new JFileChooser()
 
 	
-		public JPanel makePanel3(String h) {
+		public JPanel makePanel4(String h) {
 		JPanel panel = new JPanel();
 		
 			namn.addActionListener(this);
 			oppna.addActionListener(this);
 			spara.addActionListener(this);
-			skriv.addActionListener(this);
+			nyFil.addActionListener(this);
 			
 		
 			area.setFont(new Font("Monospaced", Font.PLAIN, 12));
-			p.setLayout(new GridLayout(1,6));
-			p.add(new JLabel("Filnamn: ", JLabel.RIGHT));
-			p.add(namn); p.add(oppna); p.add(spara);
-			p.add(skriv);
+			p.setLayout(new GridLayout(1,3));
+			p.add(nyFil);p.add(oppna); p.add(spara);
 			
-//			placera ut panelen och textarean
-			panel.add(p, BorderLayout.NORTH);
-			panel.add(sp, BorderLayout.CENTER);
+			panel.add(split);
 			panel.setVisible(true);
 
 			return panel;
@@ -72,21 +67,17 @@ public class Editor1 implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		
-		if (e.getSource() == namn || e.getSource() == oppna) {
-			l‰sInFil(Fajlchoser());
+		if (e.getSource() == oppna) {
+			l√§sInFil(filValjare());
 		} else if (e.getSource() == spara) {
 			sparaFil(getFnamn());
-		} else if (e.getSource() == skriv ) {
-			try {
-				area.print(); //Skriver ut texten
-			} catch (Exception ex) {
-				
-			} 
+		} else if (e.getSource() == nyFil ) {
+			sparaFil(sparaNyFil());
 		}
 		
 	}		
 	
-	private void l‰sInFil(String filnamn) {
+	private void l√§sInFil(String filnamn) {
 		try {
 			FileReader r = new FileReader(filnamn);
 			area.read(r, null);
@@ -106,7 +97,7 @@ public class Editor1 implements ActionListener {
 		}
 	}
 	
-	public String Fajlchoser(){
+	public String filValjare(){
 		int returnValue = jfc.showOpenDialog(null);
       	
       	 if(returnValue == JFileChooser.APPROVE_OPTION) {
@@ -119,4 +110,19 @@ public class Editor1 implements ActionListener {
       	 
 	}
 	
+	
+	public String sparaNyFil() {
+		int returnValue = jfc.showSaveDialog(null);
+      	
+     	 if(returnValue == JFileChooser.APPROVE_OPTION) {
+     		 File selectedFile = jfc.getSelectedFile();
+     		 setFnamn(selectedFile.getAbsolutePath());
+     		return selectedFile.getAbsolutePath();
+     	 } else {
+     		 return null;
+     	 }
+	}
+	
 }
+	
+

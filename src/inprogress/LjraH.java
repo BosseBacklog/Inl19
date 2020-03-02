@@ -49,12 +49,14 @@ public class LjraH extends JFrame {
 		Editor ed0 = new Editor();
 		Editor1 ed1 = new Editor1();
 		Editor2 ed2 = new Editor2();
+		Klocka k = new Klocka();
+//		ImageIcon i = new ImageIcon("Clock.jpg");
 		tabbedPane.addTab("Start", makePanel1("Tab 1"));
 		tabbedPane.addTab("Fotoalbum", makePanel2("Tab 2"));
 		tabbedPane.addTab("Editor", ed0.makePanel3("Tab 3"));
 	    tabbedPane.addTab("Editor1", ed1.makePanel4("Tab 4"));
 	    tabbedPane.addTab("Editor2", ed2.makePanel5("Tab 5"));
-//	    	tabbedPane.addTab("Tab6", makePanel("This is tab 6"));
+	    tabbedPane.addTab("Klocka", k.Clock("Tab 6"));
 //	    	 
 
 		frame.getContentPane().add(tabbedPane);

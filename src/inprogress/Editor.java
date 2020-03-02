@@ -57,7 +57,7 @@ public class Editor implements ActionListener {
 		
 			area.setFont(new Font("Monospaced", Font.PLAIN, 12));
 			p.setLayout(new GridLayout(1,6));
-			p.add(new JLabel("Fils�kv�g: ", JLabel.RIGHT));
+			p.add(new JLabel("Filsökväg: ", JLabel.RIGHT));
 			p.add(namn); p.add(oppna); p.add(spara);
 			p.add(skriv);
 			

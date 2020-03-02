@@ -35,7 +35,7 @@ public class LjraH extends JFrame {
 	private static void createAndShowGUI() {
 
 		// Create and set up the window.
-		final JFrame frame = new JFrame("Nytt F�nster");
+		final JFrame frame = new JFrame("Nytt Fönster");
 
 		// Display the window.
 		frame.setSize(800, 700);
@@ -48,11 +48,12 @@ public class LjraH extends JFrame {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		Editor ed0 = new Editor();
 		Editor1 ed1 = new Editor1();
+		Editor2 ed2 = new Editor2();
 		tabbedPane.addTab("Start", makePanel1("Tab 1"));
 		tabbedPane.addTab("Fotoalbum", makePanel2("Tab 2"));
 		tabbedPane.addTab("Editor", ed0.makePanel3("Tab 3"));
-	    tabbedPane.addTab("Tab4", ed1.makePanel4("Tab 4"));
-//	    	tabbedPane.addTab("Tab5", makePanel("This is tab 5"));
+	    tabbedPane.addTab("Editor1", ed1.makePanel4("Tab 4"));
+	    tabbedPane.addTab("Editor2", ed2.makePanel5("Tab 5"));
 //	    	tabbedPane.addTab("Tab6", makePanel("This is tab 6"));
 //	    	 
 
@@ -63,7 +64,7 @@ public class LjraH extends JFrame {
 	private static JPanel makePanel1(String text) {
 		JPanel panel = new JPanel();
 		JLabel bild1 = new JLabel(new ImageIcon("jag2.jpg"));
-		JLabel bild2 = new JLabel(new ImageIcon("l�fbergs.jpg"));
+		JLabel bild2 = new JLabel(new ImageIcon("löfbergs.jpg"));
 		JLabel text2 = new JLabel("Programmet skapat av A. Ivansson");
 
 		panel.setLayout(new BorderLayout());
@@ -84,8 +85,8 @@ public class LjraH extends JFrame {
 		JLabel l3 = new JLabel(new ImageIcon("code.jpg"));
 		JLabel l4 = new JLabel(new ImageIcon("dino.jpg"));
 		JScrollPane scroll = new JScrollPane(l1);
-		JButton b1 = new JButton("N�sta bild");
-		JButton b2 = new JButton("F�reg�ende bild");
+		JButton b1 = new JButton("Nästa bild");
+		JButton b2 = new JButton("Föregåendeende bild");
 		JLabel m = new JLabel("Bild nr " + bildnr);
 		JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, p, scroll);
 		JSplitPane split2 = new JSplitPane(JSplitPane.VERTICAL_SPLIT, o, split);
